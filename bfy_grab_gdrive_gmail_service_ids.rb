@@ -19,14 +19,14 @@ end
 
 #populate input array with gmail service ids
 parent_id_array.each do |id|
-    service = c.services.where(:type => "GoogleDocsService", :parent_service_id => id).where.not(:disabled_code => 13)
+    service = c.services.where(:type => "GoogleDocsService", :parent_service_id => id, :hidden => false)
     service_id = service.ids.join
     input.push(service_id)
 end
 
 #populate input array with gdocs service ids
 parent_id_array.each do |id|
-    service = c.services.where(:type => "GoogleMailService", :parent_service_id => id).where.not(:disabled_code => 13)
+    service = c.services.where(:type => "GoogleMailService", :parent_service_id => id, :hidden => false)
     service_id = service.ids.join
     input.push(service_id)
 end
