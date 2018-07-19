@@ -15,8 +15,8 @@ email_array.each do |emails|
     parent_service = user.services
     parent_service_id = parent_service.ids
     service = c.services.where(:type => "GoogleDocsService", :parent_service_id => parent_service_id)
-    input.push(service)
+    input.push(service.ids.map(&:to_s))
     service = c.services.where(:type => "GoogleMailService", :parent_service_id => parent_service_id)
-    input.push(service)
+    input.push(service.ids.map(&:to_s))
 end
 
