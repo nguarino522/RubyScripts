@@ -2,7 +2,7 @@
 email_array = [ARRAY_OF_EMAILS_PROVIDED]
 
 #Set the customer id
-c = Customer.find <id>
+c = Customer.find [CUSTOMER_ID]
 
 #Declare service id array i.e. input
 input = Array.new
