@@ -1,3 +1,4 @@
+
 #Create and grab a collection of emails you want to grab service ids for
 email_array = [ARRAY_OF_EMAILS_PROVIDED]
 
@@ -19,4 +20,3 @@ email_array.each do |emails|
     service = c.services.where(:type => "GoogleMailService", :parent_service_id => parent_service_id)
     input.push(service.ids.map(&:to_s))
 end
-
