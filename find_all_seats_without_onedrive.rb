@@ -39,5 +39,8 @@ end
 #email to specified inputed email address the CSV sheet created
 puts 'Please list an email to send the CSV sheet of users to:'
 user_email = gets.chomp
-attachments['users_missing_onedrive.csv'] = {mime_type: 'text/csv', content: Order.orders_csv(logged_in_user, orders)}
-mail(to: user_email.email, subject: 'CSV sheet of users missing One Drive services')
+
+def send_csv(user_email, csv)
+    attachments['users_missing_onedrive.csv'] = {mime_type: 'text/csv', content: csv}
+    mail(to: user_email, subject: 'My subject', body: "List of seats which currently don't have the OneDrive service added.")
+end
