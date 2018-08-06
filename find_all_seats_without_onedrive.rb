@@ -28,7 +28,7 @@ end
 #output array to CSV
 CSV.open("users_missing_onedrive.csv", "w") do |i|
     @missing_onedrive_seat_list.each do |j|
-        i << [x]
+        i << [j]
     end
 end
 
