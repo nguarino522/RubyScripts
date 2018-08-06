@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+#pull in class and objects from rails environment
+require File.expand_path('/mnt/backupify-production/current/script/script_helper',  __FILE__)
+script_env(:rails)
+
 #decalare and require anything we need
 require 'csv'
 @seat_ids = Array.new
