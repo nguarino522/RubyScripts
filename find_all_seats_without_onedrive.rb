@@ -5,6 +5,7 @@ require 'csv'
 @seat_ids = Array.new
 @missing_onedrive_seat_list = Array.new
 
+
 #grab customer id, alternatively can set it manually and run script manually piece by piece
 puts 'Please input a customer ID:'
 cust_id = gets.chomp
@@ -19,7 +20,7 @@ c = Customer.find cust_id
     seat = Seat.find i
     service = seat.services.where(:type => "Office365OneDriveService")
     if service.present? == false then
-        principal_name = i.principal_name
+        principal_name = seat.principal_name
         @missing_onedrive_seat_list << principal_name
     end
 end
