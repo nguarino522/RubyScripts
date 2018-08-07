@@ -11,9 +11,9 @@
 end
 
 #add one drive service to each seat/member
-member_ids.each do |m|
+@member_ids.each do |m|
 	services_creator = Office365::ServicesCreator.new(m.seat)
 	service_type = "Office365OneDriveService"
 	services_creator.create_user_service_of_class(service_type.constantize)
-	m.seat.services
+	m.seat.services.where(:type => "Office365OneDriveService")     #confirms it was added and exists
 end
