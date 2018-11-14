@@ -44,3 +44,4 @@ parent_id_array.each do |id|
     service_id = service.ids.join
     services.push(service_id)
 end
+
