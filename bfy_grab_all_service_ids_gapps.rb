@@ -14,7 +14,7 @@ email_array.each do |emails|
     parent_service = user.services
     parent_service_id = parent_service.ids.join
     parent_id_array.push(parent_service_id)
-    services.push(parent_service_id)
+    #services.push(parent_service_id)
 end
 
 #grab service ids for Google Drive services
