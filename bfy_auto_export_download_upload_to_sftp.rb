@@ -1,10 +1,10 @@
 class AutoSFTPMultiServiceExportUploader
 
 #will need to or want to have user input below, etc. so its not in code the direct connection
-server = "redacted"
+server = "<redacted>"
 username = "<redacted>"
 password = "<redacted">
-mse = MultiServiceExport.find(346)
+mse = MultiServiceExport.find(<redacted>)
 investigate = []
 @service_complete_tracker_array = []
 
@@ -45,7 +45,7 @@ services_successful.each do |s|
 					file2.write(file1.read)
 				end
 			end
-			Net::SFTP.start('52.179.140.212', 'dattouser', :password => 'z!$4BvW8F3%EGx!gfo8%%URye') do |sftp|
+			Net::SFTP.start('<redacted>', '<redacted>', :password => '<redacted>') do |sftp|
 				sftp.upload!("/tmp/nguarino/#{file_name}", "/E:/datto_data/#{file_name}")
 			end
 			File.delete("/tmp/nguarino/#{file_name}")
@@ -68,7 +68,7 @@ services_successful.each do |s|
 					file2.write(file1.read)
 				end
 			end
-			Net::SFTP.start('52.179.140.212', 'dattouser', :password => 'z!$4BvW8F3%EGx!gfo8%%URye') do |sftp|
+			Net::SFTP.start('<redacted>', '<redacted>', :password => '<redacted>') do |sftp|
 				sftp.upload!("/tmp/nguarino/#{file_name}", "/E:/datto_data/#{file_name}")
 			end
 			File.delete("/tmp/nguarino/#{file_name}")
@@ -135,7 +135,7 @@ services_successful.each do |s|
 					file2.write(file1.read)
 				end
 			end
-			Net::SFTP.start('52.179.140.212', 'dattouser', :password => 'z!$4BvW8F3%EGx!gfo8%%URye') do |sftp|
+			Net::SFTP.start('<redacted>', '<redacted>', :password => '<redacted>') do |sftp|
 				sftp.upload!("/tmp/nguarino/#{file_name}", "/E:/datto_data/#{file_name}")
 			end
 			File.delete("/tmp/nguarino/#{file_name}")
