@@ -19,7 +19,7 @@ else
 		File.open("/var/log/user_changes", "a") do |f|
 			date = `date`
 			date.delete!("\n")
-			f << "#{date} changes occurred"
+			f << "#{date} changes occurred\n"
 		end
 	else
 		exit
