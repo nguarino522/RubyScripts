@@ -1,11 +1,8 @@
 #!/usr/bin/env ruby
 
-
 #this script will pull in a CSV of download links and other service information 
 #from that it will download each export file and name based on email and specific naming convention
 #from there it will call upon a secure bash script file to upload a file share using SFTP then remove the local file copy
-
-#!/usr/bin/env ruby
 
 require 'csv'
 
