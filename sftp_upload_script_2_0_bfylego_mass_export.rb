@@ -30,7 +30,7 @@ def grab_rename_store_zipfile(serv_exp_info, cid)
             counter = counter - 1
             next
         else
-            system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
+            system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
             puts "export file copied and renamed from export directory into export_upload directory, attempting to upload to sftp location"
             system("sh sftpbashscriptupload.sh /datto/array1/bfyData/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
             puts "export upload to sftp location successful"
