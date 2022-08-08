@@ -26,13 +26,27 @@ def grab_rename_store_zipfile(serv_exp_info, cid)
         email = e[2]
         last_backup_date = e[3]
         export_zip_name = e[4]
+        mailbox = e[5]
+        sp_name = e[6]
         if export_zip_name == "NULL"
             counter = counter - 1
             next
         else
-            system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
-            puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
-            counter = counter - 1
+            if app_type == "Office365Exchange" || app_type == "Office365OneDrive"
+                system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
+                puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
+                counter = counter - 1
+            end
+            if app_type == "Office365Teams"
+                system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{mailbox}.zip")
+                puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
+                counter = counter - 1
+            end
+            if app_type == "Office365SharePoint"
+                system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{sp_name}.zip")
+                puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
+                counter = counter - 1
+            end
         end           
     end
 end
