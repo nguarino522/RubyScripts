@@ -36,34 +36,33 @@ def grab_rename_store_zipfile(serv_exp_info, cid)
         else
             if app_type == "Office365Exchange" || app_type == "Office365OneDrive"
                 counter = counter - 1
-                puts "attempting to copy #{e}"
-                if File.exists?("/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
-                    puts "file already exists, next"
-                    next
+                if File.exists?("'/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip'")
+                    puts "attempting to copy #{e} but detected same name already"
+                else
+                    puts "attempting to copy #{e}"
+                    system("mv /datto/array1/bfyData/#{cid}/export_upload/#{export_zip_name}.zip '/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip'")
+                    puts "export file renamed, moving to next export file"
                 end
-                system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip")
-                puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
             end
             if app_type == "Office365Teams"
                 counter = counter - 1
-                puts "attempting to copy #{e}"
-                if File.exists?("/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{mailbox}.zip")
-                    puts "file already exists, next"
-                    next
+                if File.exists?("'/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip'")
+                    puts "attempting to copy #{e} but detected same name already"
+                else
+                    puts "attempting to copy #{e}"
+                    system("mv /datto/array1/bfyData/#{cid}/export_upload/#{export_zip_name}.zip '/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{mailbox}.zip'")
+                    puts "export file renamed, moving to next export file"
                 end
-                system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{mailbox}.zip")
-                puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
-
             end
             if app_type == "Office365SharePoint"
                 counter = counter - 1
-                puts "attempting to copy #{e}"
-                if File.exists?("/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{sp_name}.zip")
-                    puts "file already exists, next"
-                    next
+                if File.exists?("'/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{name[0]}_#{name[1]}.zip'")
+                    puts "attempting to copy #{e} but detected same name already"
+                else
+                    puts "attempting to copy #{e}"
+                    system("mv /datto/array1/bfyData/#{cid}/export_upload/#{export_zip_name}.zip '/datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{sp_name}.zip'")
+                    puts "export file renamed, moving to next export file"
                 end
-                system("cp /datto/array1/bfyData/#{cid}/#{app_type}/exports/#{export_zip_name}.zip /datto/array1/bfyData/#{cid}/export_upload/#{app_type}_#{sp_name}.zip")
-                puts "export file copied and renamed from export directory into export_upload directory, moving to next export file"
             end
         end           
     end
